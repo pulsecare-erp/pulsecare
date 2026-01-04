@@ -1,0 +1,22 @@
+{
+  "name": "pulsecare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulsecare-erp/pulsecare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pulsecare-erp/pulsecare/issues"
+  },
+  "homepage": "https://github.com/pulsecare-erp/pulsecare#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
