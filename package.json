@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/pulsecare-erp/pulsecare#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.6.0"
   }
 }
