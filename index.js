@@ -9,6 +9,8 @@ const { admin, db } = require('./config/firebase');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.set('view engine', 'ejs');
+
 // Import routes
 const postRoute = require('./routes/post');
 const getRoute = require('./routes/get');
