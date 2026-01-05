@@ -18,4 +18,8 @@ router.post('/', async function (req, res, next) {
     }
 });
 
+router.post("/login", (req, res)=>{
+    res.json(req.body)
+})
+
 module.exports = router;

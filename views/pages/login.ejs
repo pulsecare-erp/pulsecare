@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudHealth ERP - Login</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-slate-50 antialiased overflow-x-hidden h-screen flex flex-col">
+<div class="flex flex-1 w-full h-full overflow-hidden">
+<!-- Left Section: Hero Visual -->
+<!-- Responsive: Hidden on mobile, takes 50% width on large screens -->
+<div class="hidden lg:flex lg:w-1/2 relative bg-slate-900 overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105" data-alt="Abstract view of modern hospital architecture with blue glass windows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpsfM6N-FWOh4QCki4_PcO6NRMIwWjzcKX6zSsMT3p_CpwijH-T2nj1ahci-LEqUzMVEdXQAX6egtJEFl_60ivN1_2J0hgZVZXnrdqhd9pZ9iOXRM8C3mtyLOku4IJR_BU3Tc7lIsjqYxeYhuloOuI1_aoOwsPkD0fuo-g5itF0_yiyqBZOQGQyS05AaA_EeS29-N92J0x1XHbcdrof6o_4ht174Txrm9Qlx-nWtm7eoQXMY1PbDsOCHqjx4jskYuNgwTto-xvRQM');">
+</div>
+<!-- Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-primary/30 mix-blend-multiply"></div>
+<!-- Content Overlay -->
+<div class="absolute bottom-0 left-0 p-16 text-white z-10 w-full max-w-2xl flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-3xl">local_hospital</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight">PulseCare ERP</h2>
+</div>
+<div class="space-y-4">
+<h1 class="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                        Streamlining care,<br/> one click at a time.
+                    </h1>
+<p class="text-lg font-normal text-slate-200 max-w-md leading-relaxed">
+                        Manage operations, staff, and patient flow efficiently with our secure, cloud-native hospital platform.
+                    </p>
+</div>
+<!-- Trust Badge -->
+<div class="flex items-center gap-3 mt-4 text-sm font-medium text-slate-300">
+<span class="material-symbols-outlined text-green-400">verified_user</span>
+<span>HIPAA Compliant &amp; Secure</span>
+</div>
+</div>
+</div>
+<!-- Right Section: Login Form -->
+<div class="w-full lg:w-1/2 flex flex-col relative bg-background-light dark:bg-background-dark overflow-y-auto">
+<!-- Mobile Header Logo -->
+<div class="lg:hidden p-6 flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">local_hospital</span>
+</div>
+<h2 class="text-lg font-bold text-[#0d141b] dark:text-white">CloudHealth</h2>
+</div>
+<!-- Form Container -->
+<div class="flex-1 flex flex-col justify-center items-center px-6 py-12 sm:px-12 lg:px-24">
+<div class="w-full max-w-[480px] flex flex-col gap-8">
+<!-- Header -->
+<div class="flex flex-col gap-2">
+<h1 class="text-[#0d141b] dark:text-white text-3xl font-black leading-tight tracking-[-0.015em]">
+                            Welcome back
+                        </h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-base font-normal leading-normal">
+                            Please enter your credentials to access the portal.
+                        </p>
+</div>
+<!-- Google Sign In Button -->
+<button class="flex w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg h-14 px-4 bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 text-[#0d141b] dark:text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+<svg class="size-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.7662 15.9274 23.766 12.2764Z" fill="#4285F4"></path>
+<path d="M12.24 24.0008C15.4766 24.0008 18.2059 22.9382 20.19 21.1039L16.323 18.1055C15.2517 18.8375 13.8627 19.252 12.2445 19.252C9.11388 19.252 6.45946 17.1399 5.50705 14.3003H1.5166V17.3912C3.55371 21.4434 7.7029 24.0008 12.24 24.0008Z" fill="#34A853"></path>
+<path d="M5.50253 14.3003C5.00236 12.8199 5.00236 11.1799 5.50253 9.69951V6.60861H1.5166C-0.18551 10.0056 -0.18551 13.9945 1.5166 17.3915L5.50253 14.3003Z" fill="#FBBC05"></path>
+<path d="M12.24 4.74966C13.9509 4.7232 15.6044 5.36697 16.8434 6.54867L20.2695 3.12262C18.1001 1.0855 15.2208 -0.034466 12.24 0.000808666C7.7029 0.000808666 3.55371 2.55822 1.5166 6.60861L5.50253 9.69951C6.45064 6.86248 9.10947 4.74966 12.24 4.74966Z" fill="#EA4335"></path>
+</svg>
+<span class="truncate">Sign in with Google</span>
+</button>
+<!-- Divider -->
+<div class="relative flex py-2 items-center">
+<div class="flex-grow border-t border-[#cfdbe7] dark:border-slate-700"></div>
+<span class="flex-shrink-0 mx-4 text-sm text-[#4c739a] dark:text-slate-500">Or continue with email</span>
+<div class="flex-grow border-t border-[#cfdbe7] dark:border-slate-700"></div>
+</div>
+<form action="/login" method="post">
+<!-- Inputs -->
+<div class="flex flex-col gap-6">
+<!-- Email Field -->
+<label class="flex flex-col w-full">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Email Address</p>
+<input name="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal transition-all" placeholder="name@hospital.org" type="email" value=""/>
+</label>
+<!-- Password Field -->
+<label class="flex flex-col w-full">
+<div class="flex justify-between items-center pb-2">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal">Password</p>
+<a class="text-sm font-bold text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="flex w-full flex-1 items-stretch rounded-lg group focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+<input name="password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-r-none text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] border-r-0 pr-2 text-base font-normal leading-normal group-focus-within:border-primary" placeholder="••••••••" type="password" value=""/>
+<div class="text-[#4c739a] flex border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 items-center justify-center pr-[15px] pl-2 rounded-r-lg border-l-0 group-focus-within:border-primary cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">visibility_off</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Action Button -->
+<button type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary hover:bg-blue-600 text-slate-50 text-base font-bold leading-normal tracking-[0.015em] shadow-md hover:shadow-lg transition-all active:scale-[0.99]">
+<span class="truncate">Sign In</span>
+</button>
+</form>
+<!-- Support Link & Footer -->
+<div class="flex flex-col gap-8 items-center mt-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#4c739a] dark:text-slate-400 bg-[#e7edf3] dark:bg-slate-800 hover:bg-[#dbe4ed] dark:hover:bg-slate-700 transition-colors text-sm font-bold">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+<span>Contact IT Support</span>
+</button>
+<div class="text-center text-xs text-[#4c739a] dark:text-slate-500">
+<p class="mb-2">© 2024 CloudHealth Systems. v2.4.0</p>
+<div class="flex gap-4 justify-center">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span class="text-slate-300 dark:text-slate-600">|</span>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom decorative bar for mobile/desktop -->
+<div class="h-2 w-full bg-gradient-to-r from-blue-300 via-primary to-blue-600"></div>
+</div>
+</div>
+</body></html>

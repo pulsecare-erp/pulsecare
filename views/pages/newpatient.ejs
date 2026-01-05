@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Registration - CloudHealth ERP</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-row overflow-x-hidden">
+<!-- Side Navigation -->
+<aside class="hidden w-72 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] lg:flex">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- Logo Area -->
+<div class="flex items-center gap-3 px-2">
+<div class="aspect-square size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">CloudHealth</h1>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2">
+<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">bar_chart</span>
+<p class="text-sm font-medium">Operations</p>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">group</span>
+<p class="text-sm font-medium">Staff</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-3 text-primary dark:text-primary-400" href="#">
+<span class="material-symbols-outlined filled">person</span>
+<p class="text-sm font-medium">Patient Flow</p>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">folder</span>
+<p class="text-sm font-medium">Resources</p>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">credit_card</span>
+<p class="text-sm font-medium">Billing</p>
+</a>
+</div>
+</div>
+<!-- User Profile Snippet (Optional but nice for context) -->
+<div class="flex items-center gap-3 rounded-lg border border-slate-200 dark:border-slate-700 p-3 bg-slate-50 dark:bg-slate-800/50">
+<div class="bg-center bg-cover rounded-full h-10 w-10 bg-slate-200" data-alt="Portrait of a female doctor in a white coat smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASaG-FgTQUE9ZPpVjNi37Yba3mlUodVgjUWoQutUMF-wl6TlZEgFsiWz6vlPLWKYJRlEGqVL18zdQAnp52lFJrxgE3efrApUhWYSxsePZD8DqfVnWrTi04-PgyxxxQkwg1WBtuOPvzV2dkH7O2_6On8k0X1TBSC6iQUrt7uTJaRmkIQ4gxQ4OZkhFF2Hb0-es1lIrRYQ-rOu2lJM2VAuEKEeIhWuIqEPSQam8NTt2vzjnBGQdk_toYJJ3KJCAA4UAGwUzFLS1CBBY");'></div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Dr. Sarah Chen</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Head of Admissions</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-6 py-8 md:px-12 lg:px-16 xl:px-20">
+<!-- Breadcrumbs -->
+<nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Patients</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-medium text-slate-900 dark:text-white">New Registration</span>
+</nav>
+<!-- Page Heading -->
+<div class="mb-8 flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-6">
+<div class="flex flex-col gap-1">
+<h1 class="font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">New Patient Registration</h1>
+<p class="text-base text-slate-500 dark:text-slate-400">Enter patient demographics, contact information, and initial admission details.</p>
+</div>
+</div>
+<!-- Form Content -->
+<form class="flex flex-col gap-8 pb-20">
+<!-- Section 1: Demographics -->
+<section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-[#1e293b]">
+<div class="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4 dark:border-slate-700">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-primary dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined">id_card</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Patient Identity</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Basic identification details required for patient records.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">First Name <span class="text-red-500">*</span></span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Jane" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Last Name <span class="text-red-500">*</span></span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Doe" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Date of Birth <span class="text-red-500">*</span></span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" type="date"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Gender</span>
+<select class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="">Select Gender</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="non-binary">Non-binary</option>
+<option value="other">Other</option>
+</select>
+</label>
+<label class="flex flex-col gap-2 md:col-span-2 lg:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">National ID / SSN</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="XXX-XX-XXXX" type="text"/>
+</label>
+</div>
+</section>
+<!-- Section 2: Contact Info -->
+<section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-[#1e293b]">
+<div class="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4 dark:border-slate-700">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-primary dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined">perm_phone_msg</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Contact &amp; Emergency</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Primary contact methods and next of kin information.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Phone Number <span class="text-red-500">*</span></span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="(555) 000-0000" type="tel"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="jane.doe@example.com" type="email"/>
+</label>
+<label class="flex flex-col gap-2 md:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Residential Address</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="123 Main St, Springfield, IL" type="text"/>
+</label>
+<div class="mt-2 flex flex-col gap-4 md:col-span-2">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Emergency Contact</h3>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Full Name</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Emergency Contact Name" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Relationship &amp; Phone</span>
+<div class="flex gap-2">
+<input class="h-12 w-1/3 rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Relation" type="text"/>
+<input class="h-12 w-2/3 rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Phone Number" type="tel"/>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Clinical Assignment -->
+<section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-[#1e293b]">
+<div class="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4 dark:border-slate-700">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-primary dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined">ward</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Clinical Assignment</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Assign ward location and admitting physician.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+<label class="flex flex-col gap-2 lg:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Admitting Physician <span class="text-red-500">*</span></span>
+<div class="relative">
+<select class="h-12 w-full appearance-none rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="">Select Doctor...</option>
+<option value="dr-smith">Dr. John Smith (Cardiology)</option>
+<option value="dr-jones">Dr. Emily Jones (General)</option>
+<option value="dr-williams">Dr. Alan Williams (Pediatrics)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Ward Assignment</span>
+<div class="relative">
+<select class="h-12 w-full appearance-none rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="general">General Ward</option>
+<option value="icu">ICU</option>
+<option value="pediatrics">Pediatrics</option>
+<option value="maternity">Maternity</option>
+<option value="private">Private Suite</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Bed Number</span>
+<div class="relative">
+<select class="h-12 w-full appearance-none rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="">Auto-assign</option>
+<option value="101-a">101-A</option>
+<option value="101-b">101-B</option>
+<option value="102-a">102-A</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col gap-2 lg:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Admission Date &amp; Time</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" type="datetime-local"/>
+</label>
+</div>
+</section>
+<!-- Section 4: Insurance -->
+<section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-[#1e293b]">
+<div class="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4 dark:border-slate-700">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-primary dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Insurance Information</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Coverage details for billing purposes.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Insurance Provider</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="e.g. BlueCross" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Policy Number</span>
+<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Policy ID" type="text"/>
+</label>
+</div>
+</section>
+<!-- Action Bar -->
+<div class="sticky bottom-4 z-10 mt-4 flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-lg backdrop-blur-xl dark:border-slate-700 dark:bg-[#1e293b]/90 md:bottom-8">
+<p class="hidden text-sm text-slate-500 dark:text-slate-400 sm:block">
+<span class="text-red-500">*</span> Required fields
+                            </p>
+<div class="flex w-full justify-end gap-3 sm:w-auto">
+<button class="rounded-lg border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" type="button">
+                                    Cancel
+                                </button>
+<button class="rounded-lg border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" type="button">
+                                    Save as Draft
+                                </button>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                    Register Patient
+                                </button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+</body></html>

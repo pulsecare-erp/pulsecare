@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow ERP - Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white min-h-screen flex overflow-hidden font-display">
+<!-- Sidebar -->
+<aside class="hidden w-64 flex-col bg-white dark:bg-[#1a2632] border-r border-slate-200 dark:border-slate-800 md:flex flex-shrink-0">
+<div class="flex items-center gap-3 px-6 py-6">
+<div class="bg-primary/10 rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">local_hospital</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-lg font-bold leading-tight">MediFlow ERP</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<div class="pt-4 pb-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Operations</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">masks</span>
+<p class="text-sm font-medium">Patients</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<p class="text-sm font-medium">Billing</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<p class="text-sm font-medium">Inventory</p>
+</a>
+<div class="pt-4 pb-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">System</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<p class="text-sm font-medium">Reports</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Portrait of a doctor wearing a white coat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPpX7VINBfn0QmPz5ca12N1Zgy2LooXDZjBQoN3ZSCwz5kA7GpcQaoX1KdWg5AjAVOmmOecRpLPRnofoWSavIFK-C9ZJYS47xD07C-WtoVYoWWY0NlpJPgvJhOhPZ0REJrt0-Jl0kqFz9MmO9O1kWJpK6aEvD4fxTgtNq0Tn64oO2qLNW7hHJaH8gGdCgEMGcvSQaYJxwyHqlhlnBU0p8pP2PiNTBoCe_geGguyunlXZqsY21o31_vBbPwDAv5cMQx2Q1FcxA8AZw");'></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-medium truncate text-slate-900 dark:text-white">Dr. Sarah Bennett</p>
+<p class="text-xs text-slate-500 truncate">Chief Medical Officer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Bar -->
+<header class="h-16 flex items-center justify-between px-6 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-1 text-slate-500">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Operations Center</h2>
+<p class="text-xs text-slate-500">Real-time system overview and alerts</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-slate-500 text-[20px]">calendar_month</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Today, Oct 24</span>
+</div>
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full border-2 border-white dark:border-[#1a2632]"></span>
+</button>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="hidden sm:inline">Generate Report</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 md:p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col gap-6">
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Active Patients -->
+<div class="bg-white dark:bg-[#1a2632] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+<span class="material-symbols-outlined text-primary">personal_injury</span>
+</div>
+<span class="flex items-center text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span> +4%
+                            </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Active Patients</p>
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">1,240</h3>
+</div>
+</div>
+<!-- Staff on Duty -->
+<div class="bg-white dark:bg-[#1a2632] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+<span class="material-symbols-outlined text-purple-600">stethoscope</span>
+</div>
+<span class="flex items-center text-xs font-bold text-amber-600 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-0.5">warning</span> Low
+                            </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Staff on Duty</p>
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">142</h3>
+<p class="text-xs text-slate-400 mt-1">12 below optimal level</p>
+</div>
+</div>
+<!-- Pending Bills -->
+<div class="bg-white dark:bg-[#1a2632] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+<span class="material-symbols-outlined text-emerald-600">attach_money</span>
+</div>
+<span class="flex items-center text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span> +2%
+                            </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Pending Bills</p>
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">$45.2k</h3>
+</div>
+</div>
+<!-- Inventory Alerts -->
+<div class="bg-white dark:bg-[#1a2632] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-full border-l-4 border-l-red-500">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg">
+<span class="material-symbols-outlined text-red-600">inventory_2</span>
+</div>
+<span class="flex items-center text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-full">
+                                Critical
+                            </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Inventory Alerts</p>
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">8</h3>
+<p class="text-xs text-red-500 font-medium mt-1">Needs immediate attention</p>
+</div>
+</div>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column (Charts & Occupancy) -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Ward Occupancy Widget -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Ward Occupancy</h3>
+<p class="text-sm text-slate-500">Overall hospital bed capacity utilization</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-black text-slate-900 dark:text-white">88%</span>
+<p class="text-xs text-amber-600 font-medium">Near Capacity</p>
+</div>
+</div>
+<!-- Detailed Progress Bars -->
+<div class="flex flex-col gap-4">
+<div>
+<div class="flex justify-between text-xs font-medium mb-1.5">
+<span class="text-slate-700 dark:text-slate-300">Total Capacity</span>
+<span class="text-slate-500">880 / 1000 Beds</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+<div class="bg-primary h-3 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">ER</span>
+<span class="text-xs text-red-500 font-bold">95%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
+<div class="bg-red-500 h-1.5 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">ICU</span>
+<span class="text-xs text-amber-500 font-bold">82%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
+<div class="bg-amber-500 h-1.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">General</span>
+<span class="text-xs text-emerald-500 font-bold">65%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
+<div class="bg-emerald-500 h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Patient Flow Trend -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Patient Flow Trend</h3>
+<select class="bg-slate-50 dark:bg-slate-800 border-none text-xs rounded-md py-1 px-2 text-slate-600 dark:text-slate-300 focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+</select>
+</div>
+<div class="flex-1 flex items-end justify-between gap-2 h-48 px-2 relative">
+<!-- Simple CSS Chart Visualization -->
+<div class="absolute inset-0 flex flex-col justify-between text-[10px] text-slate-400 pointer-events-none z-0">
+<div class="w-full border-b border-dashed border-slate-200 dark:border-slate-700 pb-1">100</div>
+<div class="w-full border-b border-dashed border-slate-200 dark:border-slate-700 pb-1">75</div>
+<div class="w-full border-b border-dashed border-slate-200 dark:border-slate-700 pb-1">50</div>
+<div class="w-full border-b border-dashed border-slate-200 dark:border-slate-700 pb-1">25</div>
+<div class="w-full border-b border-slate-200 dark:border-slate-700">0</div>
+</div>
+<!-- Bars overlaying the grid -->
+<div class="relative z-10 w-full h-full flex items-end justify-between gap-2 pt-4">
+<!-- Using SVG for a smooth line instead of bars for trend -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 300 100">
+<!-- Gradient Definition -->
+<defs>
+<lineargradient id="lineGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2b8cee" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#2b8cee" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area -->
+<path d="M0,80 Q30,70 60,40 T120,30 T180,50 T240,20 T300,40 V100 H0 Z" fill="url(#lineGradient)"></path>
+<!-- Line -->
+<path d="M0,80 Q30,70 60,40 T120,30 T180,50 T240,20 T300,40" fill="none" stroke="#2b8cee" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Points -->
+<circle cx="60" cy="40" fill="white" r="3" stroke="#2b8cee" stroke-width="2"></circle>
+<circle cx="120" cy="30" fill="white" r="3" stroke="#2b8cee" stroke-width="2"></circle>
+<circle cx="240" cy="20" fill="white" r="3" stroke="#2b8cee" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-slate-400 mt-2 px-1">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>24:00</span>
+</div>
+</div>
+<!-- Staff Load by Department -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Staff Load</h3>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<span class="text-[10px] text-slate-500">Normal</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-full bg-amber-500"></span>
+<span class="text-[10px] text-slate-500">High</span>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center gap-4">
+<!-- ER -->
+<div class="group">
+<div class="flex justify-between text-xs font-medium mb-1">
+<span class="text-slate-700 dark:text-slate-300">Emergency Room</span>
+<span class="text-slate-900 dark:text-white">110%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 relative">
+<div class="absolute top-0 left-0 h-2.5 rounded-full bg-amber-500" style="width: 100%"></div>
+<!-- Striped overflow indicator -->
+<div class="absolute top-0 right-0 h-2.5 w-[10%] rounded-r-full bg-red-500 animate-pulse"></div>
+</div>
+</div>
+<!-- ICU -->
+<div class="group">
+<div class="flex justify-between text-xs font-medium mb-1">
+<span class="text-slate-700 dark:text-slate-300">ICU</span>
+<span class="text-slate-900 dark:text-white">85%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Pediatrics -->
+<div class="group">
+<div class="flex justify-between text-xs font-medium mb-1">
+<span class="text-slate-700 dark:text-slate-300">Pediatrics</span>
+<span class="text-slate-900 dark:text-white">60%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5">
+<div class="bg-primary/60 h-2.5 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<!-- Surgery -->
+<div class="group">
+<div class="flex justify-between text-xs font-medium mb-1">
+<span class="text-slate-700 dark:text-slate-300">Surgery</span>
+<span class="text-slate-900 dark:text-white">45%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5">
+<div class="bg-primary/40 h-2.5 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Alerts & Activity) -->
+<div class="flex flex-col gap-6">
+<!-- AI Insights / Alerts Panel -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-purple-600">smart_toy</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Operational Insights</h3>
+</div>
+<div class="flex flex-col gap-3">
+<!-- High Risk Alert -->
+<div class="bg-red-50 dark:bg-red-900/10 border-l-4 border-red-500 p-4 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500 mt-0.5">warning</span>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Operational Overload Risk</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">ER capacity is at <span class="font-bold text-red-600">95%</span>. Inbound ambulance traffic is higher than average.</p>
+<button class="mt-2 text-xs font-semibold text-red-600 hover:text-red-700 underline">Divert Traffic</button>
+</div>
+</div>
+</div>
+<!-- Medium Risk Alert -->
+<div class="bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 p-4 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-500 mt-0.5">psychology</span>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Staff Burnout Risk</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">ICU nurses are averaging <span class="font-bold text-amber-600">14h</span> shifts this week.</p>
+<button class="mt-2 text-xs font-semibold text-amber-600 hover:text-amber-700 underline">Review Schedule</button>
+</div>
+</div>
+</div>
+<!-- Inventory Alert -->
+<div class="bg-blue-50 dark:bg-blue-900/10 border-l-4 border-blue-500 p-4 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-500 mt-0.5">inventory</span>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Low Stock Alert</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Epinephrine nearing critical levels (Only 4 units left).</p>
+<button class="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-700 underline">Order Now</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity / Compact Table -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 flex-1">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Live Activity Feed</h3>
+<div class="relative pl-4 border-l border-slate-200 dark:border-slate-700 space-y-6">
+<!-- Item 1 -->
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-red-500 border-2 border-white dark:border-[#1a2632]"></span>
+<p class="text-xs text-slate-400 mb-0.5">2 mins ago</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Emergency Admission - Bed 402</p>
+<p class="text-xs text-slate-500">Trauma Case #9921</p>
+</div>
+<!-- Item 2 -->
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-blue-500 border-2 border-white dark:border-[#1a2632]"></span>
+<p class="text-xs text-slate-400 mb-0.5">15 mins ago</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Shift Handover Completed</p>
+<p class="text-xs text-slate-500">ICU Ward B</p>
+</div>
+<!-- Item 3 -->
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1a2632]"></span>
+<p class="text-xs text-slate-400 mb-0.5">32 mins ago</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Patient Discharge</p>
+<p class="text-xs text-slate-500">John Doe (Room 201) cleared for billing</p>
+</div>
+<!-- Item 4 -->
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-[#1a2632]"></span>
+<p class="text-xs text-slate-400 mb-0.5">1 hr ago</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white">System Maintenance</p>
+<p class="text-xs text-slate-500">Scheduled backup completed successfully</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

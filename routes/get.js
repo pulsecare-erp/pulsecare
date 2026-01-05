@@ -19,4 +19,33 @@ router.get('/', async function (req, res, next) {
     }
 });
 
+// Login route
+router.get("/login", (req, res)=>{
+    res.render("pages/login")
+})
+
+// Patient flow route
+router.get("/patientflow", (req, res)=>{
+    res.render("pages/patientflow")
+})
+
+// Patient Dashboard route
+router.get("/patient", (req, res)=>{
+    res.render("pages/patient")
+})
+
+// Patient New Registre route
+router.get("/newpatient", (req, res)=>{
+    res.render("pages/newpatient")
+})
+
+// Staff route
+router.get("/staff", (req, res)=>{
+    res.render("pages/staff")
+})
+// Admin Operations route
+router.get("/operations", (req, res)=>{
+    res.render("pages/operations")
+})
+
 module.exports = router;
