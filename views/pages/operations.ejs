@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MediFlow ERP - Admin Dashboard</title>
+<title>PulseCare ERP - Admin Dashboard</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -47,59 +47,7 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white min-h-screen flex overflow-hidden font-display">
-<!-- Sidebar -->
-<aside class="hidden w-64 flex-col bg-white dark:bg-[#1a2632] border-r border-slate-200 dark:border-slate-800 md:flex flex-shrink-0">
-<div class="flex items-center gap-3 px-6 py-6">
-<div class="bg-primary/10 rounded-full p-2 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-3xl">local_hospital</span>
-</div>
-<div class="flex flex-col">
-<h1 class="text-lg font-bold leading-tight">MediFlow ERP</h1>
-<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Admin Dashboard</p>
-</div>
-</div>
-<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<p class="text-sm font-medium">Dashboard</p>
-</a>
-<div class="pt-4 pb-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Operations</div>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">masks</span>
-<p class="text-sm font-medium">Patients</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">badge</span>
-<p class="text-sm font-medium">Staff</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">payments</span>
-<p class="text-sm font-medium">Billing</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">inventory_2</span>
-<p class="text-sm font-medium">Inventory</p>
-</a>
-<div class="pt-4 pb-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">System</div>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<p class="text-sm font-medium">Reports</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<p class="text-sm font-medium">Settings</p>
-</a>
-</nav>
-<div class="p-4 border-t border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Portrait of a doctor wearing a white coat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPpX7VINBfn0QmPz5ca12N1Zgy2LooXDZjBQoN3ZSCwz5kA7GpcQaoX1KdWg5AjAVOmmOecRpLPRnofoWSavIFK-C9ZJYS47xD07C-WtoVYoWWY0NlpJPgvJhOhPZ0REJrt0-Jl0kqFz9MmO9O1kWJpK6aEvD4fxTgtNq0Tn64oO2qLNW7hHJaH8gGdCgEMGcvSQaYJxwyHqlhlnBU0p8pP2PiNTBoCe_geGguyunlXZqsY21o31_vBbPwDAv5cMQx2Q1FcxA8AZw");'></div>
-<div class="flex flex-col overflow-hidden">
-<p class="text-sm font-medium truncate text-slate-900 dark:text-white">Dr. Sarah Bennett</p>
-<p class="text-xs text-slate-500 truncate">Chief Medical Officer</p>
-</div>
-</div>
-</div>
-</aside>
+<%- include('../partials/navbar') %>
 <!-- Main Content -->
 <main class="flex-1 flex flex-col h-full overflow-hidden relative">
 <!-- Top Bar -->

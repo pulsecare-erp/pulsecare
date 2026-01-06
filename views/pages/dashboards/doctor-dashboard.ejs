@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Doctor Dashboard - PulseCare ERP</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-200">
+<div class="flex h-screen w-full overflow-hidden">
+<%- include('../../partials/navbar') %>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="max-w-6xl mx-auto">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Doctor Dashboard</h1>
+<p class="text-slate-500 dark:text-slate-400">Welcome, Dr. <%= user.name %></p>
+</div>
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">My Patients</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">24</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-blue-500">groups</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Appointments Today</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">6</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-green-500">event_note</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Pending Reports</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">12</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-orange-500">assignment</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Prescriptions Issued</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">18</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-purple-500">medication</span>
+</div>
+</div>
+</div>
+
+<!-- Patients Table -->
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Your Patients</h2>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-700">
+<th class="text-left py-3 px-4 font-medium text-slate-500 dark:text-slate-400">Patient Name</th>
+<th class="text-left py-3 px-4 font-medium text-slate-500 dark:text-slate-400">Email</th>
+<th class="text-left py-3 px-4 font-medium text-slate-500 dark:text-slate-400">Phone</th>
+<th class="text-left py-3 px-4 font-medium text-slate-500 dark:text-slate-400">Last Visited</th>
+<th class="text-left py-3 px-4 font-medium text-slate-500 dark:text-slate-400">Status</th>
+</tr>
+</thead>
+<tbody>
+<% patients.forEach((patient, index) => { %>
+<tr class="border-b border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">
+<%= patient.name.charAt(0) %>
+</div>
+<span class="font-medium text-slate-900 dark:text-white"><%= patient.name %></span>
+</div>
+</td>
+<td class="py-3 px-4 text-slate-600 dark:text-slate-300"><%= patient.email %></td>
+<td class="py-3 px-4 text-slate-600 dark:text-slate-300"><%= patient.phone || 'N/A' %></td>
+<td class="py-3 px-4 text-slate-600 dark:text-slate-300">Dec 15, 2025</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+Active
+</span>
+</td>
+</tr>
+<% }); %>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

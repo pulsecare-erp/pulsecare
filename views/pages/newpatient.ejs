@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Patient Registration - CloudHealth ERP</title>
+<title>Patient Registration - PulseCare ERP</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,51 +46,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
 <div class="relative flex min-h-screen w-full flex-row overflow-x-hidden">
-<!-- Side Navigation -->
-<aside class="hidden w-72 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1e293b] lg:flex">
-<div class="flex h-full flex-col justify-between p-4">
-<div class="flex flex-col gap-6">
-<!-- Logo Area -->
-<div class="flex items-center gap-3 px-2">
-<div class="aspect-square size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined">local_hospital</span>
-</div>
-<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">CloudHealth</h1>
-</div>
-<!-- Navigation Links -->
-<div class="flex flex-col gap-2">
-<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">bar_chart</span>
-<p class="text-sm font-medium">Operations</p>
-</a>
-<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">group</span>
-<p class="text-sm font-medium">Staff</p>
-</a>
-<a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-3 text-primary dark:text-primary-400" href="#">
-<span class="material-symbols-outlined filled">person</span>
-<p class="text-sm font-medium">Patient Flow</p>
-</a>
-<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">folder</span>
-<p class="text-sm font-medium">Resources</p>
-</a>
-<a class="group flex items-center gap-3 rounded-lg px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">credit_card</span>
-<p class="text-sm font-medium">Billing</p>
-</a>
-</div>
-</div>
-<!-- User Profile Snippet (Optional but nice for context) -->
-<div class="flex items-center gap-3 rounded-lg border border-slate-200 dark:border-slate-700 p-3 bg-slate-50 dark:bg-slate-800/50">
-<div class="bg-center bg-cover rounded-full h-10 w-10 bg-slate-200" data-alt="Portrait of a female doctor in a white coat smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASaG-FgTQUE9ZPpVjNi37Yba3mlUodVgjUWoQutUMF-wl6TlZEgFsiWz6vlPLWKYJRlEGqVL18zdQAnp52lFJrxgE3efrApUhWYSxsePZD8DqfVnWrTi04-PgyxxxQkwg1WBtuOPvzV2dkH7O2_6On8k0X1TBSC6iQUrt7uTJaRmkIQ4gxQ4OZkhFF2Hb0-es1lIrRYQ-rOu2lJM2VAuEKEeIhWuIqEPSQam8NTt2vzjnBGQdk_toYJJ3KJCAA4UAGwUzFLS1CBBY");'></div>
-<div class="flex flex-col">
-<p class="text-sm font-semibold text-slate-900 dark:text-white">Dr. Sarah Chen</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Head of Admissions</p>
-</div>
-</div>
-</div>
-</aside>
+<%- include('../partials/navbar') %>
 <!-- Main Content -->
 <main class="flex flex-1 flex-col">
 <div class="layout-container flex h-full grow flex-col">
@@ -111,7 +67,7 @@
 </div>
 </div>
 <!-- Form Content -->
-<form class="flex flex-col gap-8 pb-20">
+<form class="flex flex-col gap-8 pb-20" action="/signup" method="post" id="patientForm">
 <!-- Section 1: Demographics -->
 <section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-[#1e293b]">
 <div class="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4 dark:border-slate-700">
@@ -126,7 +82,7 @@
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 <label class="flex flex-col gap-2">
 <span class="text-sm font-medium text-slate-700 dark:text-slate-300">First Name <span class="text-red-500">*</span></span>
-<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Jane" type="text"/>
+<input name="firstName" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Jane" type="text" required/>
 </label>
 <label class="flex flex-col gap-2">
 <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Last Name <span class="text-red-500">*</span></span>
@@ -166,15 +122,32 @@
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 <label class="flex flex-col gap-2">
 <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Phone Number <span class="text-red-500">*</span></span>
-<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="(555) 000-0000" type="tel"/>
+<input name="phone" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="(555) 000-0000" type="tel" required/>
 </label>
 <label class="flex flex-col gap-2">
 <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</span>
-<input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="jane.doe@example.com" type="email"/>
+<input name="email" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="jane.doe@example.com" type="email" required/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Password <span class="text-red-500">*</span></span>
+<input name="password" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="••••••••" type="password" required minlength="6"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Confirm Password <span class="text-red-500">*</span></span>
+<input name="confirmPassword" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="••••••••" type="password" required minlength="6"/>
 </label>
 <label class="flex flex-col gap-2 md:col-span-2">
 <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Residential Address</span>
 <input class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="123 Main St, Springfield, IL" type="text"/>
+</label>
+<label class="flex flex-col gap-2 md:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">User Role <span class="text-red-500">*</span></span>
+<select name="role" class="h-12 w-full rounded-lg border-slate-200 bg-background-light px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" required>
+<option value="">Select your role</option>
+<option value="patient">Patient</option>
+<option value="doctor">Doctor</option>
+<option value="admin">Administrator</option>
+</select>
 </label>
 <div class="mt-2 flex flex-col gap-4 md:col-span-2">
 <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Emergency Contact</h3>
@@ -279,11 +252,19 @@
 </section>
 <!-- Action Bar -->
 <div class="sticky bottom-4 z-10 mt-4 flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-lg backdrop-blur-xl dark:border-slate-700 dark:bg-[#1e293b]/90 md:bottom-8">
+<div id="successMessage" class="hidden flex items-center gap-2 p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400">check_circle</span>
+<p id="successText" class="text-sm font-medium text-green-700 dark:text-green-300"></p>
+</div>
+<div id="errorMessage" class="hidden flex items-center gap-2 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400">error</span>
+<p id="errorText" class="text-sm font-medium text-red-700 dark:text-red-300"></p>
+</div>
 <p class="hidden text-sm text-slate-500 dark:text-slate-400 sm:block">
 <span class="text-red-500">*</span> Required fields
                             </p>
 <div class="flex w-full justify-end gap-3 sm:w-auto">
-<button class="rounded-lg border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" type="button">
+<button class="rounded-lg border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" type="button" onclick="window.location.href='/login'">
                                     Cancel
                                 </button>
 <button class="rounded-lg border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" type="button">
@@ -296,6 +277,72 @@
 </div>
 </div>
 </form>
+<script>
+  document.getElementById('patientForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const firstName = document.querySelector('input[name="firstName"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    const confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+    const role = document.querySelector('select[name="role"]').value;
+    
+    const errorDiv = document.getElementById('errorMessage');
+    const errorText = document.getElementById('errorText');
+    const successDiv = document.getElementById('successMessage');
+    const successText = document.getElementById('successText');
+    
+    // Client-side validation
+    if (!firstName || !email || !password || !phone || !role) {
+      errorText.textContent = 'All required fields must be filled';
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+      return;
+    }
+    
+    if (password.length < 6) {
+      errorText.textContent = 'Password must be at least 6 characters long';
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      errorText.textContent = 'Passwords do not match';
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+      return;
+    }
+    
+    try {
+      const response = await fetch('/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, email, password, confirmPassword, phone, role })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        successText.textContent = data.message;
+        successDiv.classList.remove('hidden');
+        errorDiv.classList.add('hidden');
+        setTimeout(() => {
+          window.location.href = data.redirect;
+        }, 2000);
+      } else {
+        errorText.textContent = data.message;
+        errorDiv.classList.remove('hidden');
+        successDiv.classList.add('hidden');
+      }
+    } catch (error) {
+      errorText.textContent = 'An error occurred. Please try again.';
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+    }
+  });
+</script>
 </div>
 </div>
 </main>

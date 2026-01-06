@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Patient Dashboard - PulseCare ERP</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-200">
+<div class="flex h-screen w-full overflow-hidden">
+<%- include('../../partials/navbar') %>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="max-w-6xl mx-auto">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Patient Dashboard</h1>
+<p class="text-slate-500 dark:text-slate-400">Welcome back, <%= user.name %></p>
+</div>
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Upcoming Appointments</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">2</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-blue-500">calendar_month</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Medical Records</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">8</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-green-500">folder_open</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Prescriptions</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">5</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-purple-500">medication</span>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Lab Results</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-2">3</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-orange-500">science</span>
+</div>
+</div>
+</div>
+
+<!-- Recent Activity -->
+<div class="bg-white dark:bg-[#1a2632] rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Recent Medical Records</h2>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">file_present</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-white">Cardiology Checkup Report</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">December 15, 2025</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-sm font-medium">View</button>
+</div>
+
+<div class="flex items-center justify-between p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">file_present</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-white">Blood Test Results</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">December 10, 2025</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-sm font-medium">View</button>
+</div>
+
+<div class="flex items-center justify-between p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">file_present</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-white">General Health Examination</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">December 1, 2025</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-sm font-medium">View</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

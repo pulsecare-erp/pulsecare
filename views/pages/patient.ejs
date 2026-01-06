@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Patient Overview Dashboard - MediCloud ERP</title>
+<title>Patient Overview Dashboard - PulseCare ERP</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -58,46 +58,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-200">
 <div class="flex h-screen w-full overflow-hidden">
-<!-- Sidebar -->
-<aside class="hidden md:flex flex-col w-64 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex-shrink-0 z-20">
-<div class="p-6 pb-2">
-<div class="flex items-center gap-3 mb-8">
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-sm" data-alt="MediCloud ERP Logo generic hospital cross" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7eOgZOnv0GUMlL4kjvDAAcnNkO0LMdBH0RgjItMX9E2hxASL-QcoGernQ76aZDV0bkR8MP0p1AhA3b5XwZQP_p-cCRRAwNJml1C5QNrLMKelBVAqB9Z7wCtyCc69ckRVViGO8T_Armga1EVqoHozLnQvMkP011ZhSUdbLpSX4DRJ1j2Ilaxc0dYszOKfMdXef9aIm2W4lqMOFJkaMWdvNdOsvhMEQlaDBurDGZ9niiAKYOpkL1lwIFXRRxZlG1GSO8enAMQ99zZw");'></div>
-<div class="flex flex-col">
-<h1 class="text-slate-900 dark:text-white text-base font-bold leading-normal">PulseCare ERP</h1>
-<p class="text-slate-500 dark:text-slate-400 text-xs font-normal leading-normal">St. Mary's Hospital</p>
-</div>
-</div>
-<nav class="flex flex-col gap-2">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="#">
-<span class="material-symbols-outlined text-xl">dashboard</span>
-<p class="text-sm font-medium">Overview</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">content_paste</span>
-<p class="text-sm font-medium">Clinical Notes</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">science</span>
-<p class="text-sm font-medium">Labs</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">credit_card</span>
-<p class="text-sm font-medium">Billing</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">settings</span>
-<p class="text-sm font-medium">Settings</p>
-</a>
-</nav>
-</div>
-<div class="mt-auto p-6 border-t border-border-light dark:border-border-dark">
-<div class="flex items-center gap-3">
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-slate-200 dark:border-slate-700" data-alt="Doctor Profile Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDr_JmsoWpuNV6rmFH-3gz3hkVSHl2885sTRbVXbWCPFpUQmhwS4xaWJaFt-JqoGsCpyiYkiAxx0L3li-9El2Q3lMentpoWqzbvPHh6SSvS96Kmgt_nBR38IzyxpVGnv5Hfnd-eN2b_Z2pa-8cu2uQv3Vn1d04XkKdfWtAJcizf2ivYIalGRZxsfnogkTXg2yOzfMujq04LRAoSQb_WAPW6IhMzk2_Yr5fkihFGrQXikKmYRaz3c8PLPITYcAmw3lt9Z99FMhRSu0Q");'></div>
-<div class="flex flex-col overflow-hidden">
-<p class="text-slate-900 dark:text-white text-sm font-bold truncate">Dr. Sarah Jenning</p>
-<p class="text-slate-500 dark:text-slate-400 text-xs truncate">Head of Cardiology</p>
-</div>
+<%- include('../partials/navbar') %>
 </div>
 </div>
 </aside>

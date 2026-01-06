@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PulseCare ERP - Hospital Operations Management</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .client-logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop" 
+             class="w-full h-full object-cover opacity-10 dark:opacity-5 grayscale" 
+             alt="Hospital Background Pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-background-light/90 via-background-light/95 to-background-light dark:from-background-dark/90 dark:via-background-dark/95 dark:to-background-dark"></div>
+    </div>
+
+    <div class="relative z-10 flex min-h-screen w-full flex-col">
+        <header class="w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#101922]/80 backdrop-blur-md sticky top-0 z-50">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined" style="font-size: 24px;">monitor_heart</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">PulseCare ERP</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button class="hidden sm:flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">help</span>
+                            <span>Contact Support</span>
+                        </button>
+                        <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+                        <div class="flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full border border-emerald-100 dark:border-emerald-800">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            Systems Operational
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center pt-12 lg:pt-20 pb-20 px-4 sm:px-6">
+            
+            <div class="w-full max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+                <div class="flex flex-col gap-8 lg:pr-8 animate-fade-in-up">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+                            Intelligent <span class="text-primary">Hospital Operations</span> Management
+                        </h1>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+                            Orchestrating healthcare excellence by streamlining operations, staff management, patient flow, resource allocation, and billing visibility in one cloud-native platform.
+                        </p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6 pt-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                <span class="material-symbols-outlined">vital_signs</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white">Real-time Patient Flow</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Optimize bed occupancy and reduce wait times.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                <span class="material-symbols-outlined">inventory_2</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white">Resource Allocation</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Smart tracking for equipment and staff scheduling.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                <span class="material-symbols-outlined">payments</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white">Integrated Billing</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Seamless financial visibility and automated processing.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                <span class="material-symbols-outlined">security</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white">Enterprise Security</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">HIPAA compliant data protection and encryption.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block pt-8">
+                        <div class="h-64 w-full rounded-2xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative shadow-lg">
+                            <img alt="Hospital Interior" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDk9zAQ-lKjWYpVbBz_ML4e6KwqRHckWUB4evoGsMz5Qidw3__zoB6Nize7pY1-oSUT264lq032qzSzzJmAffd1uyA8FmaEGmlnHd6KEps_JkmerTxQvN5FVed_88CEUAOsBiHY6JZZvSLdYRKxMd5ri4BeJp1kC1VBc7ER48nbt4rjlBAWVOKZHUF60WB2nsc5kC1oR2tgtSH5xUzr_4pEdk87Z4dZBBw7zyQsq5Zm414Dzn99je_rotIWuiXhjRsSZ1g--XIg-g"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-6">
+                                <p class="text-white font-medium">Trusted by over 500 healthcare institutions worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full flex justify-center lg:justify-end">
+                    <div class="w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+                        <div class="p-8">
+                            <div class="mb-8 text-center">
+                                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Welcome Back</h2>
+                                <p class="text-slate-500 dark:text-slate-400 mt-2">Please access your secure workspace.</p>
+                            </div>
+                            <form class="space-y-5">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Email Address</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                            <span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
+                                        </div>
+                                        <input class="block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm" id="email" placeholder="name@hospital.com" type="email"/>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="password">Password</label>
+                                        <a class="text-sm font-medium text-primary hover:text-primary/80" href="#">Forgot?</a>
+                                    </div>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                            <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+                                        </div>
+                                        <input class="block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm" id="password" placeholder="••••••••" type="password"/>
+                                    </div>
+                                </div>
+                                <button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200" type="button" onclick="window.location.href='/login'">
+                                    Sign In
+                                </button>
+                            </form>
+                            <div class="relative my-6">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full border-t border-slate-200 dark:border-slate-600"></div>
+                                </div>
+                                <div class="relative flex justify-center text-sm">
+                                    <span class="px-2 bg-white dark:bg-slate-800 text-slate-500">Or continue with SSO</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="flex items-center justify-center w-full px-4 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors" type="button">
+                                    <svg aria-hidden="true" class="h-5 w-5 mr-2" viewbox="0 0 24 24">
+                                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+                                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+                                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+                                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+                                    </svg>
+                                    Google
+                                </button>
+                                <button class="flex items-center justify-center w-full px-4 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors" type="button">
+                                    <svg class="h-5 w-5 mr-2" fill="none" viewbox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.4 11.4H0V0H11.4V11.4Z" fill="#F25022"></path>
+                                        <path d="M23 11.4H11.6V0H23V11.4Z" fill="#7FBA00"></path>
+                                        <path d="M11.4 23H0V11.6H11.4V23Z" fill="#00A4EF"></path>
+                                        <path d="M23 23H11.6V11.6H23V23Z" fill="#FFB900"></path>
+                                    </svg>
+                                    Microsoft
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-900/50 px-8 py-4 border-t border-slate-100 dark:border-slate-700 flex justify-center">
+                            <p class="text-xs text-slate-500 text-center">Protected by enterprise-grade security. <br/> <a class="text-primary hover:underline" href="#">Privacy Policy</a> • <a class="text-primary hover:underline" href="#">Terms of Service</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full max-w-7xl border-t border-slate-200 dark:border-slate-800 pt-16 pb-20">
+                <div class="text-center mb-10">
+                    <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Trusted by industry-leading healthcare providers</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-60 dark:opacity-50">
+                    <div class="flex items-center gap-2 group hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl text-slate-700 dark:text-slate-300">cardiology</span>
+                        <span class="client-logo-text text-slate-700 dark:text-slate-300">Apex<span class="font-normal">Health</span></span>
+                    </div>
+                    <div class="flex items-center gap-2 group hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl text-slate-700 dark:text-slate-300">medication_liquid</span>
+                        <span class="client-logo-text text-slate-700 dark:text-slate-300">Medi<span class="font-normal">Corp</span></span>
+                    </div>
+                     <div class="flex items-center gap-2 group hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl text-slate-700 dark:text-slate-300">genetics</span>
+                        <span class="client-logo-text text-slate-700 dark:text-slate-300">Bio<span class="font-normal">Genix</span></span>
+                    </div>
+                    <div class="flex items-center gap-2 group hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl text-slate-700 dark:text-slate-300">emergency_home</span>
+                        <span class="client-logo-text text-slate-700 dark:text-slate-300">City<span class="font-normal">Care</span></span>
+                    </div>
+                    <div class="flex items-center gap-2 group hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl text-slate-700 dark:text-slate-300">medical_services</span>
+                        <span class="client-logo-text text-slate-700 dark:text-slate-300">Uni<span class="font-normal">Med</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full max-w-7xl py-12 lg:py-16">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Complete Hospital Management</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">
+                        PulseCare replaces disjointed legacy systems with a single, unified ERP that covers every aspect of clinical and administrative workflows.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">clinical_notes</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Smart EHR & EMR</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Complete digital records with voice-to-text, ICD-10 coding support, and instant access to patient history across departments.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/40 text-teal-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">pill</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Pharmacy & Inventory</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Automated stock alerts, expiry tracking, and direct integration with prescriptions to prevent medication errors.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">biotech</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Laboratory (LIS)</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Barcode sample tracking, automated analyzer interfacing, and instant report delivery to patient portals.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">ward</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Ward & Bed Management</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Visual dashboard of bed occupancy, discharge planning tools, and housekeeping status updates in real-time.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-900/40 text-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">diversity_3</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">HR & Roster</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Manage doctor shifts, nurse rotations, payroll, and credentialing compliance in one simplified interface.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">query_stats</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">BI & Analytics</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Executive dashboards for revenue cycles, patient outcomes, and operational efficiency metrics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full max-w-7xl py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Impact Stories</h2>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">See how healthcare institutions are transforming their daily operations and patient care experiences with PulseCare.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="text-primary mb-4">
+                                <span class="material-symbols-outlined" style="font-size: 32px;">format_quote</span>
+                            </div>
+                            <p class="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                                "Implementation was incredibly smooth. We reduced our ER patient wait times by <span class="font-bold text-slate-900 dark:text-white">40%</span> within the first two months of using PulseCare's patient flow modules."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-sm">
+                                SC
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Dr. Sarah Chen</p>
+                                <p class="text-xs text-slate-500">Chief of Operations, Apex Health</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="text-primary mb-4">
+                                <span class="material-symbols-outlined" style="font-size: 32px;">format_quote</span>
+                            </div>
+                            <p class="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                                "The billing integration is a game changer. We recovered <span class="font-bold text-slate-900 dark:text-white">15%</span> of previously lost revenue due to coding errors. The system practically pays for itself."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center text-emerald-700 dark:text-emerald-300 font-bold text-sm">
+                                MJ
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Marcus Johnson</p>
+                                <p class="text-xs text-slate-500">Financial Director, CityCare Hospital</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="text-primary mb-4">
+                                <span class="material-symbols-outlined" style="font-size: 32px;">format_quote</span>
+                            </div>
+                            <p class="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                                "Managing shifts for 500+ nurses used to be a nightmare. With PulseCare, we have optimized coverage and reduced overtime costs significantly."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold text-sm">
+                                ER
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Elena Rodriguez</p>
+                                <p class="text-xs text-slate-500">Head Nurse, MediCorp Centers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#101922] py-6 relative z-10">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-4">
+                    <span>© 2024 PulseCare Systems. All rights reserved.</span>
+                    <span class="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+                    <span>Version 2.4.0 (Build 9821)</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-1.5" title="HIPAA Compliant">
+                        <span class="material-symbols-outlined text-slate-400" style="font-size: 16px;">health_and_safety</span>
+                        <span>HIPAA Compliant</span>
+                    </div>
+                    <div class="flex items-center gap-1.5" title="GDPR Ready">
+                        <span class="material-symbols-outlined text-slate-400" style="font-size: 16px;">gavel</span>
+                        <span>GDPR Ready</span>
+                    </div>
+                    <div class="flex items-center gap-1.5" title="ISO 27001 Certified">
+                        <span class="material-symbols-outlined text-slate-400" style="font-size: 16px;">verified_user</span>
+                        <span>ISO 27001</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

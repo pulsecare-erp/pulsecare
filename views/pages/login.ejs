@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CloudHealth ERP - Login</title>
+<title>PulseCare ERP - Login</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -88,7 +88,7 @@
 <div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-xl">local_hospital</span>
 </div>
-<h2 class="text-lg font-bold text-[#0d141b] dark:text-white">CloudHealth</h2>
+<h2 class="text-lg font-bold text-[#0d141b] dark:text-white">PulseCare ERP</h2>
 </div>
 <!-- Form Container -->
 <div class="flex-1 flex flex-col justify-center items-center px-6 py-12 sm:px-12 lg:px-24">
@@ -118,13 +118,13 @@
 <span class="flex-shrink-0 mx-4 text-sm text-[#4c739a] dark:text-slate-500">Or continue with email</span>
 <div class="flex-grow border-t border-[#cfdbe7] dark:border-slate-700"></div>
 </div>
-<form action="/login" method="post">
+<form action="/login" method="post" id="loginForm">
 <!-- Inputs -->
 <div class="flex flex-col gap-6">
 <!-- Email Field -->
 <label class="flex flex-col w-full">
 <p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Email Address</p>
-<input name="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal transition-all" placeholder="name@hospital.org" type="email" value=""/>
+<input name="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal transition-all" placeholder="name@hospital.org" type="email" required/>
 </label>
 <!-- Password Field -->
 <label class="flex flex-col w-full">
@@ -133,26 +133,76 @@
 <a class="text-sm font-bold text-primary hover:underline" href="#">Forgot password?</a>
 </div>
 <div class="flex w-full flex-1 items-stretch rounded-lg group focus-within:ring-2 focus-within:ring-primary/50 transition-all">
-<input name="password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-r-none text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] border-r-0 pr-2 text-base font-normal leading-normal group-focus-within:border-primary" placeholder="••••••••" type="password" value=""/>
-<div class="text-[#4c739a] flex border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 items-center justify-center pr-[15px] pl-2 rounded-r-lg border-l-0 group-focus-within:border-primary cursor-pointer hover:text-primary transition-colors">
+<input name="password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-r-none text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] border-r-0 pr-2 text-base font-normal leading-normal group-focus-within:border-primary" placeholder="••••••••" type="password" required/>
+<div class="text-[#4c739a] flex border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 items-center justify-center pr-[15px] pl-2 rounded-r-lg border-l-0 group-focus-within:border-primary cursor-pointer hover:text-primary transition-colors" id="togglePassword">
 <span class="material-symbols-outlined text-[24px]">visibility_off</span>
 </div>
 </div>
 </label>
+<!-- Error Message -->
+<div id="errorMessage" class="hidden flex items-center gap-2 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400">error</span>
+<p id="errorText" class="text-sm font-medium text-red-700 dark:text-red-300"></p>
+</div>
 </div>
 <!-- Action Button -->
 <button type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary hover:bg-blue-600 text-slate-50 text-base font-bold leading-normal tracking-[0.015em] shadow-md hover:shadow-lg transition-all active:scale-[0.99]">
 <span class="truncate">Sign In</span>
 </button>
 </form>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    const errorDiv = document.getElementById('errorMessage');
+    const errorText = document.getElementById('errorText');
+    
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        errorDiv.classList.add('hidden');
+        window.location.href = data.redirect;
+      } else {
+        errorText.textContent = data.message;
+        errorDiv.classList.remove('hidden');
+      }
+    } catch (error) {
+      errorText.textContent = 'An error occurred. Please try again.';
+      errorDiv.classList.remove('hidden');
+    }
+  });
+
+  document.getElementById('togglePassword').addEventListener('click', () => {
+    const passwordInput = document.querySelector('input[name="password"]');
+    const icon = document.querySelector('#togglePassword .material-symbols-outlined');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon.textContent = 'visibility';
+    } else {
+      passwordInput.type = 'password';
+      icon.textContent = 'visibility_off';
+    }
+  });
+</script>
 <!-- Support Link & Footer -->
 <div class="flex flex-col gap-8 items-center mt-4">
+<div class="text-center text-sm text-[#4c739a] dark:text-slate-400">
+<p>Don't have an account? <a href="/signup" class="text-primary font-bold hover:underline">Sign up here</a></p>
+</div>
 <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#4c739a] dark:text-slate-400 bg-[#e7edf3] dark:bg-slate-800 hover:bg-[#dbe4ed] dark:hover:bg-slate-700 transition-colors text-sm font-bold">
 <span class="material-symbols-outlined text-[20px]">support_agent</span>
 <span>Contact IT Support</span>
 </button>
 <div class="text-center text-xs text-[#4c739a] dark:text-slate-500">
-<p class="mb-2">© 2024 CloudHealth Systems. v2.4.0</p>
+<p class="mb-2">© 2024 PulseCare Systems. v2.4.0</p>
 <div class="flex gap-4 justify-center">
 <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
 <span class="text-slate-300 dark:text-slate-600">|</span>

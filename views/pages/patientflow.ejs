@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Patient Flow Dashboard - St. Mary's General Hospital</title>
+<title>Patient Flow Dashboard - PulseCare ERP</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -40,46 +40,7 @@
     </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 min-h-screen flex flex-col">
-<!-- Top Navigation -->
-<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-6 lg:px-10 py-3 shadow-sm">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-4 text-text-main dark:text-white">
-<div class="size-8 text-primary">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
-</svg>
-</div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] hidden md:block">St. Mary's General</h2>
-</div>
-<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-background-light dark:bg-background-dark border border-transparent focus-within:border-primary transition-colors">
-<div class="text-text-secondary dark:text-gray-400 flex items-center justify-center pl-3">
-<span class="material-symbols-outlined text-[20px]">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-transparent text-base font-normal leading-normal placeholder:text-text-secondary dark:placeholder:text-gray-500 text-text-main dark:text-white px-3 focus:outline-none border-none focus:ring-0 h-full" placeholder="Search patients, staff..." value=""/>
-</div>
-</label>
-</div>
-<div class="flex flex-1 justify-end gap-4 lg:gap-8">
-<nav class="hidden lg:flex items-center gap-6">
-<a class="text-primary font-bold text-sm leading-normal" href="#">Dashboard</a>
-<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Patients</a>
-<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Staff</a>
-<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Resources</a>
-<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Billing</a>
-</nav>
-<div class="flex gap-3 items-center">
-<button class="flex items-center justify-center rounded-lg size-10 bg-background-light dark:bg-background-dark hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-white relative">
-<span class="material-symbols-outlined text-[20px]">notifications</span>
-<span class="absolute top-2 right-2 size-2 bg-status-red rounded-full"></span>
-</button>
-<button class="flex items-center justify-center rounded-lg size-10 bg-background-light dark:bg-background-dark hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-white">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-</button>
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Profile picture of a doctor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKJkc2je_REZcigIhYsHaHPOCIzHoI8GnrOPdJbY9jQ-ZMu_EEFJBI3xUiQLnMV53L8uY0q1drRMFq8rXCuws5XW8CCzGAqsNWJ2bEFnEL0rqXAM9XtKx6GF_iits9EZ6X7LSEkispqWn_UOs0CVaI0ZvdbXjb94Qp0B1awtXMuiNbSGxfRC5CWWJCbHHhfPX4XNWoiyPbBTHsuC3wFXztpzHQ4yJid2tdORpdRpS126UzINkJX4-Z7WtnzIsT0qfbDpH_ZE6vO0M");'></div>
-</div>
-</div>
-</header>
+<%- include('../partials/navbar') %>
 <div class="flex flex-1 flex-col max-w-[1440px] mx-auto w-full px-4 lg:px-10 pb-10">
 <!-- Page Header -->
 <div class="flex flex-wrap justify-between items-end gap-4 py-8">

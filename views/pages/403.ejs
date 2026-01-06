@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Access Denied - PulseCare ERP</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen w-full items-center justify-center p-6">
+<div class="flex flex-col items-center gap-6 text-center max-w-md">
+<span class="material-symbols-outlined text-8xl text-red-500">lock</span>
+<h1 class="text-4xl font-bold text-slate-900 dark:text-white">403</h1>
+<p class="text-xl font-medium text-slate-700 dark:text-slate-300">Access Denied</p>
+<p class="text-slate-500 dark:text-slate-400"><%= message %></p>
+<a href="/patient" class="mt-4 inline-flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+Go Back
+</a>
+</div>
+</div>
+</body>
+</html>
